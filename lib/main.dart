@@ -1,4 +1,5 @@
-import 'package:database_practise/sharedPrefrence/landing_screen.dart';
+import 'package:database_practise/sharedPrefrence/LandingScreen.dart';
+import 'package:database_practise/sharedPrefrence/signup_Screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
