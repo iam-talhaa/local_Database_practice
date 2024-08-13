@@ -12,6 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     print("testing");
     print("testing");
+    print("testing");
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(colors: [Colors.red, Colors.black]),
