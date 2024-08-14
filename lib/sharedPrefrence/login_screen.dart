@@ -71,9 +71,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       SharedPreferences prefs =
                           await SharedPreferences.getInstance();
 
-                      await prefs.setString('myemail', email.toString());
-                      await prefs.setString('mypass', pass.toString());
-                      print(email);
+                      prefs.setString('myemail', email.text);
+                      prefs.setString('mypass', pass.text);
+                      print('Email :${email.text}  Password :${pass.text}');
                       print(pass);
                     },
                     mycolor: Color.fromARGB(255, 196, 8, 8),
