@@ -1,3 +1,4 @@
+import 'package:database_practise/sharedPrefrence/customWIdgets.dart';
 import 'package:flutter/material.dart';
 
 class LandingScreen extends StatefulWidget {
@@ -10,9 +11,47 @@ class LandingScreen extends StatefulWidget {
 class _LandingScreenState extends State<LandingScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [Colors.red, Colors.black]),
+    return Scaffold(
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(colors: [Colors.red, Colors.black]),
+        ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Fitness Club ",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 30),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 60),
+              child: Text(
+                "Welcome Back ",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 30),
+              ),
+            ),
+            C_button(
+              ontap: () {},
+              Mytext: 'SIGN IN',
+              textcolor: Colors.white,
+            ),
+            C_button(
+              ontap: () {},
+              mycolor: Colors.white,
+              Mytext: 'SIGNUP',
+            ),
+          ],
+        ),
       ),
     );
   }

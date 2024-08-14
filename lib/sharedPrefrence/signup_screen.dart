@@ -1,3 +1,5 @@
+import 'package:database_practise/sharedPrefrence/customWIdgets.dart';
+import 'package:database_practise/sharedPrefrence/custom_formField.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -12,6 +14,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     final Height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.height;
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passController = TextEditingController();
 
     return Scaffold(
       body: Container(
@@ -39,13 +43,40 @@ class _SignUpScreenState extends State<SignUpScreen> {
               height: 100,
             ),
             Container(
-              height: Height * 0.7,
+              height: Height * 0.73,
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20),
                   )),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 20,
+                  ),
+                  C_TextFormField(
+                    hint: 'Full Names',
+                  ),
+                  C_TextFormField(
+                    controller: emailController,
+                    hint: 'Email or Phone',
+                  ),
+                  C_TextFormField(
+                    controller: passController,
+                    hint: 'Password',
+                  ),
+                  C_TextFormField(
+                    hint: 'Confirm password',
+                  ),
+                  C_button(
+                    textcolor: Colors.white,
+                    Mytext: "SignUp",
+                    ontap: () {},
+                    mycolor: Color.fromARGB(255, 196, 8, 8),
+                  )
+                ],
+              ),
             )
           ],
         ),
