@@ -72,11 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     textcolor: Colors.white,
                     Mytext: "Sign IN",
                     ontap: () async {
-                      if (widget.e_controller == L_email) {
-                        return print("Equal");
-                      } else
-                        print("NOT EQUAL");
-
+                      print('object');
                       if (L_email.text.isEmpty || L_pass.text.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: Text('please fill all fields'),
