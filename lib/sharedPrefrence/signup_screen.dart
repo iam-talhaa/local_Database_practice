@@ -1,5 +1,6 @@
 import 'package:database_practise/sharedPrefrence/customWIdgets.dart';
 import 'package:database_practise/sharedPrefrence/custom_formField.dart';
+import 'package:database_practise/sharedPrefrence/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -60,11 +61,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     hint: 'Full Names',
                   ),
                   C_TextFormField(
-                    controller: emailController,
+                    mycontroller: emailController,
                     hint: 'Email or Phone',
                   ),
                   C_TextFormField(
-                    controller: passController,
+                    mycontroller: passController,
                     hint: 'Password',
                   ),
                   C_TextFormField(
@@ -83,6 +84,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'mypass', passController.toString());
                       print(emailController);
                       print(passController);
+
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => HomeScreen()));
                     },
                     mycolor: Color.fromARGB(255, 196, 8, 8),
                   ),

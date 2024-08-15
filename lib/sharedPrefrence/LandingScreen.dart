@@ -1,4 +1,5 @@
 import 'package:database_practise/sharedPrefrence/customWIdgets.dart';
+import 'package:database_practise/sharedPrefrence/signup_Screen.dart';
 import 'package:flutter/material.dart';
 
 class LandingScreen extends StatefulWidget {
@@ -46,7 +47,10 @@ class _LandingScreenState extends State<LandingScreen> {
               textcolor: Colors.white,
             ),
             C_button(
-              ontap: () {},
+              ontap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => SignUpScreen()));
+              },
               mycolor: Colors.white,
               Mytext: 'SIGNUP',
             ),

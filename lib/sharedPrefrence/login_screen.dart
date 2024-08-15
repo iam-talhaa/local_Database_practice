@@ -15,8 +15,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final Height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.height;
-    TextEditingController email = TextEditingController();
-    TextEditingController pass = TextEditingController();
+    TextEditingController L_email = TextEditingController();
+    TextEditingController L_pass = TextEditingController();
 
     return Scaffold(
       body: Container(
@@ -57,11 +57,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 20,
                   ),
                   C_TextFormField(
-                    controller: email,
+                    mycontroller: L_email,
                     hint: 'Email or Phone',
                   ),
                   C_TextFormField(
-                    controller: pass,
+                    mycontroller: L_pass,
                     hint: 'Password',
                   ),
                   C_button(
@@ -71,10 +71,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       SharedPreferences prefs =
                           await SharedPreferences.getInstance();
 
-                      prefs.setString('myemail', email.text);
-                      prefs.setString('mypass', pass.text);
-                      print('Email :${email.text}  Password :${pass.text}');
-                      print(pass);
+                      prefs.setString('myemail', L_email.text);
+                      prefs.setString('mypass', L_pass.text);
+
+                      final String? check1 = prefs.getString('myemail');
+                      final String? check2 = prefs.getString('mypass');
+                      print('111111111:${check2} AND ${check1}');
                     },
                     mycolor: Color.fromARGB(255, 196, 8, 8),
                   ),

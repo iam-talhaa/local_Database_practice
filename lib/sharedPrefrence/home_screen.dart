@@ -1,3 +1,4 @@
+import 'package:database_practise/sharedPrefrence/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,9 +14,20 @@ class _HomeScreenState extends State<HomeScreen> {
     print("testing");
     print("testing");
     print("testing");
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [Colors.red, Colors.black]),
+    return Scaffold(
+      appBar: AppBar(
+        actions: [
+          TextButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
+              },
+              child: Text("Log out"))
+        ],
+        title: Text("HomeScreen"),
+      ),
+      body: Column(
+        children: [],
       ),
     );
   }
