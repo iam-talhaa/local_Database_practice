@@ -75,6 +75,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     textcolor: Colors.white,
                     Mytext: "SignUp",
                     ontap: () async {
+                      if (emailController.text.isEmpty ||
+                          passController.text.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text('please fill all fields'),
+                        ));
+                        return;
+                      }
                       SharedPreferences prefs =
                           await SharedPreferences.getInstance();
 
@@ -82,11 +89,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'myemail', emailController.toString());
                       await prefs.setString(
                           'mypass', passController.toString());
-                      print(emailController);
-                      print(passController);
+                      // print(emailController);
+                      // print(passController);
 
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (BuildContext context) => HomeScreen()));
+                          builder: (BuildContext context) => HomeScreen(
+                                SignupemailController: emailController,
+                                SignuppassController: passController,
+                              )));
                     },
                     mycolor: Color.fromARGB(255, 196, 8, 8),
                   ),

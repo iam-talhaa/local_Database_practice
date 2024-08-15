@@ -1,5 +1,4 @@
 import 'package:database_practise/sharedPrefrence/LandingScreen.dart';
-import 'package:database_practise/sharedPrefrence/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -4,7 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  final e_controller;
+  final p_controller;
+
+  const LoginScreen(
+      {super.key, required this.e_controller, required this.p_controller});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -68,15 +72,26 @@ class _LoginScreenState extends State<LoginScreen> {
                     textcolor: Colors.white,
                     Mytext: "Sign IN",
                     ontap: () async {
+                      if (widget.e_controller == L_email) {
+                        return print("Equal");
+                      } else
+                        print("NOT EQUAL");
+
+                      if (L_email.text.isEmpty || L_pass.text.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text('please fill all fields'),
+                        ));
+                        return;
+                      }
                       SharedPreferences prefs =
                           await SharedPreferences.getInstance();
 
                       prefs.setString('myemail', L_email.text);
                       prefs.setString('mypass', L_pass.text);
 
-                      final String? check1 = prefs.getString('myemail');
-                      final String? check2 = prefs.getString('mypass');
-                      print('111111111:${check2} AND ${check1}');
+                      print(
+                          'OLD:${widget.e_controller} :OLD  ${widget.p_controller}');
+                      print("NEW :${L_email} : NEW ${L_pass}");
                     },
                     mycolor: Color.fromARGB(255, 196, 8, 8),
                   ),

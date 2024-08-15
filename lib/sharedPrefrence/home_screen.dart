@@ -2,7 +2,12 @@ import 'package:database_practise/sharedPrefrence/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final SignupemailController;
+  final SignuppassController;
+  const HomeScreen(
+      {super.key,
+      required this.SignupemailController,
+      required this.SignuppassController});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -11,16 +16,18 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    print("testing");
-    print("testing");
-    print("testing");
+    final e_con = widget.SignupemailController;
+    final p_con = widget.SignuppassController;
     return Scaffold(
       appBar: AppBar(
         actions: [
           TextButton(
               onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => LoginScreen()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => LoginScreen(
+                          e_controller: e_con,
+                          p_controller: p_con,
+                        )));
               },
               child: Text("Log out"))
         ],
