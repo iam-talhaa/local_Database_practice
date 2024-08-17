@@ -1,14 +1,11 @@
 import 'package:database_practise/sharedPrefrence/customWIdgets.dart';
 import 'package:database_practise/sharedPrefrence/custom_formField.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
-  final e_controller;
-  final p_controller;
-
-  const LoginScreen(
-      {super.key, required this.e_controller, required this.p_controller});
+  const LoginScreen({
+    super.key,
+  });
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -71,25 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   C_button(
                     textcolor: Colors.white,
                     Mytext: "Sign IN",
-                    ontap: () async {
-                      print('object');
-                      print('object');
-                      if (L_email.text.isEmpty || L_pass.text.isEmpty) {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text('please fill all fields'),
-                        ));
-                        return;
-                      }
-                      SharedPreferences prefs =
-                          await SharedPreferences.getInstance();
-
-                      prefs.setString('myemail', L_email.text);
-                      prefs.setString('mypass', L_pass.text);
-
-                      print(
-                          'OLD:${widget.e_controller} :OLD  ${widget.p_controller}');
-                      print("NEW :${L_email} : NEW ${L_pass}");
-                    },
+                    ontap: () async {},
                     mycolor: Color.fromARGB(255, 196, 8, 8),
                   ),
                   Padding(

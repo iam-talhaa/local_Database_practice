@@ -2,12 +2,9 @@ import 'package:database_practise/sharedPrefrence/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  final SignupemailController;
-  final SignuppassController;
-  const HomeScreen(
-      {super.key,
-      required this.SignupemailController,
-      required this.SignuppassController});
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -16,25 +13,46 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final e_con = widget.SignupemailController;
-    final p_con = widget.SignuppassController;
     return Scaffold(
       appBar: AppBar(
         actions: [
           TextButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => LoginScreen(
-                          e_controller: e_con,
-                          p_controller: p_con,
-                        )));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
               },
               child: Text("Log out"))
         ],
         title: Text("HomeScreen"),
       ),
-      body: Column(
-        children: [],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Notification "),
+                Switch(value: false, onChanged: (v) {}),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Notification "),
+                Switch(value: false, onChanged: (v) {}),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Notification "),
+                Switch(value: false, onChanged: (v) {}),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
