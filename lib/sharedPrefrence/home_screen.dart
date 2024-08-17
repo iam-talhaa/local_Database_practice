@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    bool my = false;
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -40,15 +41,22 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Notification "),
+                Text("Recommandation"),
                 Switch(value: false, onChanged: (v) {}),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Notification "),
-                Switch(value: false, onChanged: (v) {}),
+                Text("Black & White  theme"),
+                Switch(
+                    value: my,
+                    onChanged: (my) {
+                      setState(() {
+                        print(my);
+                        my = false;
+                      });
+                    }),
               ],
             )
           ],
