@@ -1,6 +1,8 @@
 import 'package:database_practise/sharedPrefrence/customWIdgets.dart';
 import 'package:database_practise/sharedPrefrence/custom_formField.dart';
+import 'package:database_practise/sharedPrefrence/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({
@@ -68,7 +70,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   C_button(
                     textcolor: Colors.white,
                     Mytext: "Sign IN",
-                    ontap: () async {},
+                    ontap: () async {
+                      final SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+
+                      final String? db_email = prefs.getString('SignUpEmail');
+                      final String? db_pass = prefs.getString('SignUpPass');
+                      if (L_email.text == db_email && L_pass.text == db_pass) {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (BuildContext context) => HomeScreen()));
+                      }
+                    },
                     mycolor: Color.fromARGB(255, 196, 8, 8),
                   ),
                   Padding(

@@ -1,6 +1,8 @@
 import 'package:database_practise/sharedPrefrence/customWIdgets.dart';
 import 'package:database_practise/sharedPrefrence/custom_formField.dart';
+import 'package:database_practise/sharedPrefrence/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -72,7 +74,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   C_button(
                     textcolor: Colors.white,
                     Mytext: "SignUp",
-                    ontap: () async {},
+                    ontap: () async {
+                      final SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      await prefs.setString(
+                          'SignUpEmail', emailController.text);
+                      await prefs.setString('SignUpPass', passController.text);
+
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => HomeScreen()));
+                    },
                     mycolor: Color.fromARGB(255, 196, 8, 8),
                   ),
                   Padding(

@@ -12,8 +12,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+  bool my = false;
+  bool islogin = false;
+
   Widget build(BuildContext context) {
-    bool my = false;
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -35,30 +37,25 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Notification "),
-                Switch(value: false, onChanged: (v) {}),
+                Switch(value: my, onChanged: (v) {}),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Recommandation"),
-                Switch(value: false, onChanged: (v) {}),
+                Switch(value: my, onChanged: (v) {}),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("Black & White  theme"),
-                Switch(
-                    value: my,
-                    onChanged: (my) {
-                      setState(() {
-                        print(my);
-                        my = false;
-                      });
-                    }),
-              ],
-            )
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              Text("Black & White  theme"),
+              Switch(
+                  value: my,
+                  onChanged: (value) {
+                    my = value;
+                    setState(() {});
+                  }),
+            ])
           ],
         ),
       ),
