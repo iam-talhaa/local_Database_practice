@@ -1,5 +1,6 @@
 import 'package:database_practise/sharedPrefrence/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
@@ -12,9 +13,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
-  bool my = false;
-  bool islogin = false;
-
+  final db = GetStorage();
+  final my = false;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -52,7 +52,6 @@ class _HomeScreenState extends State<HomeScreen> {
               Switch(
                   value: my,
                   onChanged: (value) {
-                    my = value;
                     setState(() {});
                   }),
             ])

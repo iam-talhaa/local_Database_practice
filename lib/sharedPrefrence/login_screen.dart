@@ -73,6 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ontap: () async {
                       final SharedPreferences prefs =
                           await SharedPreferences.getInstance();
+                      await prefs.setString('islogin', 'true');
 
                       final String? db_email = prefs.getString('SignUpEmail');
                       final String? db_pass = prefs.getString('SignUpPass');
