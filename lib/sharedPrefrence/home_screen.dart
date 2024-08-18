@@ -52,6 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Switch(
                   value: my,
                   onChanged: (value) {
+                    print('');
                     setState(() {});
                   }),
             ])
